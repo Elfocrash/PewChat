@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@inject ChatManager ChatManager
+
+<div class="row top-space">
+    <div class="col-lg-12">
+        <ul id="messages">
+            @foreach (var item in ChatManager.Messages)
+            {
+                <li>@item.UserId said: @item.Message</li>
+            }
+        </ul>
+        <input class="form-control" id="message-content"/>
+    </div>
+</div>
+
+@section Scripts{
+    <script data-main="scripts/main" src="https://rawgit.com/radu-matei/websocket-manager/master/src/WebSocketManager.Client.TS/dist/WebSocketManager.js"></script>
+}
